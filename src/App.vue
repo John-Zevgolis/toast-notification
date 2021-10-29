@@ -1,26 +1,21 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <button @click="showToast = true">Show Toast</button>
+    <app-toast message="Message has been sent" position="top-right" :show="showToast" @hide="showToast = false"></app-toast>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Toast from './components/toast/Toast.vue';
 
 export default {
-  name: 'App',
+  data() {
+    return {
+      showToast: false
+    }
+  },
   components: {
-    HelloWorld
+    appToast: Toast
   }
 }
 </script>
-
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
